@@ -1,7 +1,8 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const hbs = require('hbs')
-const port = 8181
+const port = process.env.PORT
 
 //servir contenido estatico
 // Establecer el directorio donde se encuentran los 
@@ -30,8 +31,8 @@ app.get('/registrarVenta',(req, res) => {
 
 
 app.get('*',(req, res)=>{
-    //res.send('Pagina no encontrada')
-    res.sendFile(__dirname + '/public/404.html')
+    res.send('404')
+    //res.sendFile(__dirname + '/public/404.html')
 })
 
 app.listen(port, () => {
